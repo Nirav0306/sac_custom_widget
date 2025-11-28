@@ -93,34 +93,35 @@ var getScriptPromisify = src => {
     // ------------------
     // LifecycleCallbacks
     // ------------------
-    onCustomWidgetBeforeUpdate (changedProps) {}
+    onCustomWidgetBeforeUpdate (changedProps) {
 
-    // bindNewSource (source, datasource) {
-    //   this.bindWithSource_ = datasource
-    //   this.source = source
+    bindNewSource (source, datasource) {
+      this.bindWithSource_ = datasource
+      this.source = source
 
-    //   this.dispatchEvent(
-    //     new CustomEvent('propertiesChanged', {
-    //       detail: {
-    //         properties: {
-    //           "check": this.source
-    //         }
-    //       }
-    //     })
-    //   )
+      this.dispatchEvent(
+        new CustomEvent('propertiesChanged', {
+          detail: {
+            properties: {
+              "check": this.source
+            }
+          }
+        })
+      )
 
-    //   this.dispatchEvent(
-    //     new CustomEvent('propertiesChanged', {
-    //       detail: {
-    //         properties: {
-    //           check1: "Hello World!"
-    //         }
-    //       }
-    //     })
-    //   )
+      this.dispatchEvent(
+        new CustomEvent('propertiesChanged', {
+          detail: {
+            properties: {
+              check1: "Hello World!"
+            }
+          }
+        })
+      )
 
-    //   console.log('Source :', source, 'Property set:', this.check, this.check1)
-    // }
+      console.log('Source :', source, 'Property set:', this.check, this.check1)
+    }
+    }
 
     onCustomWidgetAfterUpdate (changedProps) {
       //   console.log(this.dataBindings.getDataBinding('source1'))
@@ -748,3 +749,4 @@ var getScriptPromisify = src => {
 
   customElements.define('d3-geomap', Main)
 })()
+
